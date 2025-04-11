@@ -1,0 +1,10 @@
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.alert {
+    background: #f4f4f4;
+    padding: 10px 20px;
+}

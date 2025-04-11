@@ -1,3 +1,17 @@
 .add-form {
     margin-bottom: 40px;
 }
+
+.error-input {
+    border: 1px solid #F23D3D;
+    border-radius: 3px;
+}
+
+.no-error {
+    display: none;
+}
+
+.error-message {
+    display: block;
+    color: #F23D3D;
+}

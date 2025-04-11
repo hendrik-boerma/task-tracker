@@ -12,31 +12,37 @@ export class AddTaskComponent {
   @Output() onAddTask: EventEmitter<Task> = new EventEmitter()
   text: string = '';
   day: string = '';
-  reminder: boolean = false;
+  check: boolean = false;
   showAddTask: boolean = false;
+  showError: boolean = false;
   subscription: Subscription;
 
   constructor(private uiService: UiService) {
     this.subscription = this.uiService.onToggle().subscribe(value => this.showAddTask = value)
   }
 
+  clearError() {
+    this.showError = false;
+    return;
+  }
+
   onSubmit() {
     if(!this.text) {
-      alert('Please add a task')
+      this.showError = true;
       return;
     }
 
     const newTask = {
       text: this.text,
       day: this.day,
-      reminder: this.reminder
+      check: this.check
     }
 
     this.onAddTask.emit(newTask)
   
     this.text = '';
     this.day = '';
-    this.reminder = false;
+    this.check = false;
   }
 
 }
